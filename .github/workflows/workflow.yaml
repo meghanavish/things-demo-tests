@@ -28,9 +28,9 @@ jobs:
 
       - name: Run API and Model tests
         run: |
-          pytest .\test_api_telemetry.py -v
-          pytest .\test_model_output.py
+          pytest test_api_telemetry.py -v
+          pytest test_model_output.py
 
       - name: Run UI Tests
         run:
-          python .\test_dashboard_ui.py
+          python test_dashboard_ui.py
