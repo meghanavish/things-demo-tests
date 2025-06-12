@@ -36,7 +36,7 @@ jobs:
           python --html=report_ui.html test_dashboard_ui.py
 
       - name: Upload test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pytest-report
           path: |
