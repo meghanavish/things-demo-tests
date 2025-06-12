@@ -28,9 +28,18 @@ jobs:
 
       - name: Run API and Model tests
         run: |
-          pytest test_api_telemetry.py -v
-          pytest test_model_output.py
+          pytest --html=report_api.html test_api_telemetry.py -v
+          pytest --html=report_model.html test_model_output.py
 
       - name: Run UI Tests
         run:
-          python test_dashboard_ui.py
+          python --html=report_ui.html test_dashboard_ui.py
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: pytest-report
+          path: |
+            report_api.html
+            report_model.xml
+            report_ui.html
