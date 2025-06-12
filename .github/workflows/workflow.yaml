@@ -41,4 +41,4 @@ jobs:
           name: pytest-report
           path: |
             report_api.html
-            report_model.xml
+            report_model.html
