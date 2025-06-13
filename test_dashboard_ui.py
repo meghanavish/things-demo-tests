@@ -5,7 +5,7 @@ import json
 import re
 
 
-jwt_token="Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZWV2aXNod2FuYXRoMDAxQGdtYWlsLmNvbSIsInVzZXJJZCI6ImFlNDM5NmUwLTQ3N2ItMTFmMC05MDViLTcxNTE4OGFkMmNkOCIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwic2Vzc2lvbklkIjoiMmVmYzgyYWEtZjJjNy00YzEzLWIyNDctOGY1OGU2OTUzNTUwIiwiZXhwIjoxNzUxNTI1NzU4LCJpc3MiOiJ0aGluZ3Nib2FyZC5pbyIsImlhdCI6MTc0OTcyNTc1OCwiZmlyc3ROYW1lIjoibWVnaGFuYSIsImxhc3ROYW1lIjoibiIsImVuYWJsZWQiOnRydWUsInByaXZhY3lQb2xpY3lBY2NlcHRlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6ImFlMWNmYzEwLTQ3N2ItMTFmMC05MDViLTcxNTE4OGFkMmNkOCIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAifQ.ONYPwoyCIQMwk8zaY0-dNfzWd8UGsWWGf8j250GgxmkwUX5C7z9havcYhnBac3oJOxEBkfHfcun1fYUyHaf31A"
+jwt_token="Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZWV2aXNod2FuYXRoMDAxQGdtYWlsLmNvbSIsInVzZXJJZCI6ImFlNDM5NmUwLTQ3N2ItMTFmMC05MDViLTcxNTE4OGFkMmNkOCIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwic2Vzc2lvbklkIjoiZDY4MjU3NDktMDgwNi00YmQ5LTllYmEtMjI0MjdlZjljZGZhIiwiZXhwIjoxNzUxNTk1NzI3LCJpc3MiOiJ0aGluZ3Nib2FyZC5pbyIsImlhdCI6MTc0OTc5NTcyNywiZmlyc3ROYW1lIjoibWVnaGFuYSIsImxhc3ROYW1lIjoibiIsImVuYWJsZWQiOnRydWUsInByaXZhY3lQb2xpY3lBY2NlcHRlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6ImFlMWNmYzEwLTQ3N2ItMTFmMC05MDViLTcxNTE4OGFkMmNkOCIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAifQ.abTp-2O3e361BGfWU9NY9Oss72iI-Gt9c2s8kpPvppyUCXKd8IZKwuD9qKZKDPBSUOBAg4CWT2cKUI8Ukn7_BA"
 
 
 
@@ -143,8 +143,8 @@ def testVisualization(playwright):
         print("No ML widget found.")
 
         
-    page.screenshot(path="ml_widget_threshold_chart_sync.png", full_page=True)
-    print("Screenshot saved as 'ml_widget_threshold_chart_sync.png'")
+    page.screenshot(path="time_series_chart.png", full_page=True)
+    print("Screenshot saved as 'time_series.png'")
 
     browser.close()
 
@@ -153,10 +153,10 @@ if __name__ == "__main__":
     try:
         print("Running Playwright test...")
         with sync_playwright() as playwright:
-            # print("Test - Validation of login and navigation to dashboard")
-            # runLoginDashboard(playwright)
-            # print("Test - Validating the real time updation of widgets")
-            # runRealTimeUpdates(playwright)
+            print("Test - Validation of login and navigation to dashboard")
+            runLoginDashboard(playwright)
+            print("Test - Validating the real time updation of widgets")
+            runRealTimeUpdates(playwright)
             print("Test - Identify ML based visualization")
             testVisualization(playwright)
 

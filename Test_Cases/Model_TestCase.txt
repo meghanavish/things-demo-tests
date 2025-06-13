@@ -2,6 +2,8 @@
 Test Case 01: 
 ------------------------------------------------------------------------------------
 
+Pre-requsites: Device should be Active
+
 Actions/Steps:
 Step 1: Send DELETE to https://demo.thingsboard.io/api/plugins/telemetry/DEVICE/{DEVICE_ID}/timeseries/delete?keys=anomaly,prediction"f"?keys=anomaly,prediction&deleteAllDataForKeys=true replace {DEVICE_ID} with Input 04 do Check 01
 Step 2: Test to check missing anomaly and predition send GET to https://demo.thingsboard.io/api/plugins/telemetry/DEVICE/{DEVICE_ID}/values/timeseries replace {DEVICE_ID} with Input 04 do Check 01

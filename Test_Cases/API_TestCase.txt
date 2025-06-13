@@ -2,6 +2,8 @@
 Test Case 01: Validate the response from querying a model-influenced telemertry data
 ------------------------------------------------------------------------------------
 
+Pre-requsites: Device should be Active
+
 Actions/Steps:
 Step 1: Send GET to https://demo.thingsboard.io/api/tenant/devices?deviceName={DEVICE} replace {DEVICE} with Input 02 do Check 01
 Step 2: Retrieve the {device_id} based on the output from Step 1
