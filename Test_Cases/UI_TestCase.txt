@@ -1,0 +1,97 @@
+----------------------------------------------------------------------------------
+Test Case 01: Validate user login and Navigation to the dashboardb- Positive Case
+------------------------------------------------------------------------------------
+
+Pre-Requisites:
+The target url https://demo.thingsboard.io/ is accessible
+
+Actions/Steps:
+Step 1: Open browser
+Step 2: Go to the login page https://demo.thingsboard.io/login
+Step 3: Fill the page with the username and password or alternatively if there is JWT token (Input 01) use the token to login Check 01
+Step 4: Go to the dashboard page https://demo.thingsboard.io/dashboard do Check 02
+Step 5: Close browser
+
+Checks:
+Check 01: If the JWT token is valied user should be able to succussfully login
+Check 02: Dasboard Page should load successfully
+
+Inputs:
+
+Inoput 01: JWT token
+
+-----------------------------------------------------------------------
+Test Case 02: Validate user login with invalid token - Negative Case
+------------------------------------------------------------------------
+
+Pre-Requisites:
+The target url https://demo.thingsboard.io/ is accessible
+
+Actions/Steps:
+Step 1: Go to the login page https://demo.thingsboard.io/login
+Step 2: Pass an invalid JWT token perform Check 01
+
+Checks:
+Check 01: Error is thrown saying invalid token.
+
+-------------------------------------------------------------------------
+Test Case 03: Validate the update of telemetry data of Tempaerature widget
+--------------------------------------------------------------------------
+
+Pre-Requisites:
+The target url https://demo.thingsboard.io/ is accessible
+
+Actions/Steps:
+Step 1: Open browser
+Step 2: Go to the login page https://demo.thingsboard.io/login
+Step 3: Fill the page with the username and password or alternatively if there is JWT token use the token to login Check 01
+Step 4: Go to the dashboard page https://demo.thingsboard.io/dashboard/{dashboard_id} do Check 02
+Step 5: Locate the widget by passing the class name of the value card (For ex.here it is "tb-value-card-value") and get the value do Check 03
+Step 6: Update the temperature value by paasing the payload as in Input 02, Check 04
+Step 7: Retrieve the value of the temperature as in Step 5, do Check 03
+Step 8: Compare the temperatures do Check 05
+Step 9: Close browser
+
+
+Checks:
+Check 01: If the JWT token is valied user should be able to succussfully login
+Check 02: Dasboard Page should load successfully
+Check 03: Temperature value is successfully retrieved.
+Check 04: Validate response code 200 is returned
+Check 05: The temperature should be updated and should reflect the value passed as input else fail the test.
+
+
+Inputs:
+
+Input 01: JWT token
+Input 02: {"temperature":NEW_TEMPERATURE }
+
+-----------------------------------------------------------------------
+Test Case 04: Validate if there are any ML based visualization widgets
+-----------------------------------------------------------------------
+Pre-Requisites:
+The target url https://demo.thingsboard.io/ is accessible
+
+Actions/Steps:
+Step 1: Open browser
+Step 2: Go to the login page https://demo.thingsboard.io/login
+Step 3: Fill the page with the username and password or alternatively if there is JWT token use the token to login Check 01
+Step 4: Go to the dashboard page https://demo.thingsboard.io/dashboard/{dashboard_id} do Check 02
+Step 5: Locate the widget look for any Time Series widget do Check 03
+Step 6: Retrieve the widget title, and check if there is any text like 'threshold' or 'anomaly' do Check 04
+Step 7: Retrieve the value of the temperature as in Step 4, do Check 03
+Step 8: Compare the temperatures do Check 05
+Step 9: Close browser
+
+
+Checks:
+Check 01: If the JWT token is valied user should be able to succussfully login
+Check 02: Dasboard Page should load successfully
+Check 03: Time series chart successfully loaded.
+Check 04: If the text is present then infer that ML based visualization is present
+
+
+Inputs:
+
+Input 01: JWT token
+

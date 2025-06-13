@@ -34,8 +34,8 @@ def test_missing_telemetry_response():
 
 
 @pytest.mark.parametrize("payload", [
-    {"anomaly": False, "prediction": 26.4},
-    {"anomaly": True, "prediction": 89.2},
+    {"anomaly": False, "prediction": 35.9},
+    {"anomaly": True, "prediction": 87.6},
 ])
 
 
@@ -45,8 +45,8 @@ def test_send_and_validate_model_telemetry(payload):
     print(resp.content)
     assert resp.status_code == 200, "Failed to send telemetry"
 
-    fetch_url = f"https://demo.thingsboard.io/api/plugins/telemetry/DEVICE/{DEVICE_ID}/values/timeseries"
-    read_resp = requests.get(fetch_url,headers=AUTHORIZATION_HEADER)
+    url = f"https://demo.thingsboard.io/api/plugins/telemetry/DEVICE/{DEVICE_ID}/values/timeseries"
+    read_resp = requests.get(url,headers=AUTHORIZATION_HEADER)
     print(read_resp.content)
     assert read_resp.status_code == 200, "Failed to read telemetry"
 
@@ -59,7 +59,7 @@ def test_send_and_validate_model_telemetry(payload):
 
 def test_invalid_telemetry_data():
     print("TEST 3 - Test invalid data")
-    payload = {"anomaly": "maybe", "prediction": "NaN"}
+    payload = {"anomaly": "maybe", "prediction": "notAvaialable"}
     resp = requests.post(BASE_URL, headers=HEADERS, json=payload)
     print(resp.content)
-    assert resp.status_code == 200, "Telemetry post should not fail, but should be handled gracefully"
+    assert resp.status_code == 200, "Failed to update with invalid values"

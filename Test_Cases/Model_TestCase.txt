@@ -1,0 +1,29 @@
+------------------------------------------------------------------------------------
+Test Case 01: 
+------------------------------------------------------------------------------------
+
+Actions/Steps:
+Step 1: Send DELETE to https://demo.thingsboard.io/api/plugins/telemetry/DEVICE/{DEVICE_ID}/timeseries/delete?keys=anomaly,prediction"f"?keys=anomaly,prediction&deleteAllDataForKeys=true replace {DEVICE_ID} with Input 04 do Check 01
+Step 2: Test to check missing anomaly and predition send GET to https://demo.thingsboard.io/api/plugins/telemetry/DEVICE/{DEVICE_ID}/values/timeseries replace {DEVICE_ID} with Input 04 do Check 01
+Step 3: Validate the response received in Step 2 , do Check 02
+Step 3: Send GET to https://demo.thingsboard.io/api/plugins/telemetry/DEVICE/{device_id}/values/timeseries?keys=temperature,anomaly,confidence do Check 01
+Step 4: Validate the response received - Check 02
+Step 5: Update the Device under test with anamoly and predictions send POST to https://demo.thingsboard.io/api/v1/{DEVICE_TOKEN}/telemetry with Input 05 and do Check 01, iterate over both the variants
+Step 6: Check if the values are updated
+Step 7: Send POST to https://demo.thingsboard.io/api/v1/{DEVICE_TOKEN}/telemetry with Input 06 and do Check 01
+
+Checks:
+Check 01: Successful response code of 200 is returned
+Check 02: Check if 'anomaly' and 'predictions' is missing
+
+Inputs:
+
+Input 01: JWT token
+Input 02: DEVICE_NAME - DHT22 Demo Device
+Input 03: BASE_URL - https://demo.thingsboard.io/api/v1/{DEVICE_TOKEN}/telemetry
+Input 04: DEVICE_ID
+Input 05: Variants - 
+            {"anomaly": False, "prediction": 35.9},
+            {"anomaly": True, "prediction": 87.6}
+Input 06: Invalid Variant
+            {"anomaly": "maybe", "prediction": "notAvaialable"}

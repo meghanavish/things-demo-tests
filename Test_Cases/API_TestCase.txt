@@ -1,0 +1,19 @@
+------------------------------------------------------------------------------------
+Test Case 01: Validate the response from querying a model-influenced telemertry data
+------------------------------------------------------------------------------------
+
+Actions/Steps:
+Step 1: Send GET to https://demo.thingsboard.io/api/tenant/devices?deviceName={DEVICE} replace {DEVICE} with Input 02 do Check 01
+Step 2: Retrieve the {device_id} based on the output from Step 1
+Step 3: Send GET to https://demo.thingsboard.io/api/plugins/telemetry/DEVICE/{device_id}/values/timeseries?keys=temperature,anomaly,confidence do Check 01
+Step 4: Validate the response received - Check 02
+
+Checks:
+Check 01: Successful response code of 200 is returned
+Check 02: Check if 'anomaly' is present, check if 'confidence' is present.
+
+Inputs:
+
+Input 01: JWT token
+Input 02: DEVICE_NAME - DHT22 Demo Device
+Input 03: BASE_URL - https://demo.thingsboard.io

@@ -78,6 +78,8 @@ def runRealTimeUpdates(playwright):
         json=payload,
         headers={"X-Authorization": jwt_token}
     )
+
+    assert response.status_code==200
     
     print(f"Telemetry update response: {response.status_code}")
 
