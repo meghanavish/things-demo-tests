@@ -10,7 +10,6 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-      type: choice
       options:
           - dev
           - test
@@ -18,7 +17,6 @@ on:
       default: dev
       
       test_type:
-      type: choice
       options: 
           - Smoke
           - Regressions
