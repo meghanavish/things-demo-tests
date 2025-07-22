@@ -7,6 +7,16 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        options: dev
+                 test
+                 staging
+      test_type:
+        options: Smoke
+                 Regressions
+                 Performance
 
 
 jobs:
