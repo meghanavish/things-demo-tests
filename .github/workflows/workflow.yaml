@@ -10,17 +10,19 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        options:
+      type: choice
+      options:
           - dev
           - test
           - staging
-        default: dev
+      default: dev
       test_type:
-        options: 
+      type: choice
+      options: 
           - Smoke
           - Regressions
           - Performance
-        default: Smoke
+      default: Smoke
 
 
 jobs:
@@ -47,6 +49,11 @@ jobs:
         run: |
           pytest --html=report_api.html test_api_telemetry.py
           pytest --html=report_model.html test_model_output.py
+
+      - name: test inputs
+        if: ${{ inputs.environment == 'dev' }}
+        run: |
+          echo "Running in dev"
 
       - name: Run UI Tests
         run:
