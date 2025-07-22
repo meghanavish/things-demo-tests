@@ -16,6 +16,7 @@ on:
           - test
           - staging
       default: dev
+      
       test_type:
       type: choice
       options: 
@@ -49,11 +50,6 @@ jobs:
         run: |
           pytest --html=report_api.html test_api_telemetry.py
           pytest --html=report_model.html test_model_output.py
-
-      - name: test inputs
-        if: ${{ inputs.environment == 'dev' }}
-        run: |
-          echo "Running in dev"
 
       - name: Run UI Tests
         run:
