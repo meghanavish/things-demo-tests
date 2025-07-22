@@ -10,13 +10,17 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        options: dev
-                 test
-                 staging
+        options:
+          - dev
+          - test
+          - staging
+        default: dev
       test_type:
-        options: Smoke
-                 Regressions
-                 Performance
+        options: 
+          - Smoke
+          - Regressions
+          - Performance
+        default: Smoke
 
 
 jobs:
