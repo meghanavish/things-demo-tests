@@ -7,7 +7,7 @@ UI Tests
 
 1. Created account in ThingsDemo.io
 2. Created a Device 'TemperatureMonitoring', for some tese cases I have used already existing Device like 'DemoDHT22 Demo Device'
-3. Created a 'TemperatureMonitoring' Dasboard.
+3. Created a 'TemperatureMonitoring' Dashboard.
 4. Added two Widgets
     a. Temperature 
     b. Time Series chart
@@ -25,7 +25,7 @@ CI Pipeline
 
 1. The code has been committed to github - https://github.com/meghanavish/things-demo-tests/actions/runs/15627981605
 2. The tests have run successfully and pytest reports are generated
-3. There is an issue running the UI tests which needs further debugging, however screenshots of the UI tests run locally is attache din the Output_Screenshots folder.
+3. There is an issue running the UI tests which needs further debugging, however screenshots of the UI tests run locally is attached in the Output_Screenshots folder.
 4. The Output_Screenshots folder also has the API and Model based test reports downloaded from github.
 
 
