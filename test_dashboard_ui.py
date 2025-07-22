@@ -28,7 +28,7 @@ def runLoginDashboard(playwright):
     # Navigate to the dashboard
     page.goto("https://demo.thingsboard.io/dashboard")
 
-    # Add assertions or checks here
+    
     print("UI Test Validation 1 - Successfully navigated to dashboard using JWT token")
 
     

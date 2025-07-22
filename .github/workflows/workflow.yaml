@@ -8,9 +8,12 @@ on:
     branches:
       - main
 
+
 jobs:
   run-pytest:
     runs-on: ubuntu-latest
+    env:
+      JWT_TOKEN: ${{ secrets.JWT_TOKEN}}
 
     steps:
       - name: Checkout code
